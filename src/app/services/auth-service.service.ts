@@ -15,7 +15,6 @@ export class AuthServiceService {
   constructor(private http: HttpClient) { }
 
   register(registerPayload: RegisterPayload): Observable<Auth>{
-    return this.http.post<Auth>('http://localhost:8081/api/auth/register', registerPayload);
+    return this.http.post<Auth>('http://localhost:8081/beerme/api/auth/register', registerPayload);
   }
-
 }
