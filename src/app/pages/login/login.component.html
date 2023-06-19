@@ -1,1 +1,34 @@
-<p>login works!</p>
+<div class="flex flex-col items-center">
+    <form [formGroup] = "loginForm" (ngSubmit)="submitForm()" class="flex flex-col items-center gap-10 my-40 shadow-xl p-20 rounded-md bg-gradient-to-tr from-yellow-900 to-yellow-200 text-white">
+
+        <h1 class="font-bold text-4xl">Please Log In</h1>
+    
+        <label class="flex flex-col">
+            Username:
+            <input class="bg-orange-100 px-5 py-2 rounded-md shadow-2xl transition focus:ease-out focus:scale-110 duration-300 shadow-orange-700 text-black" type="username" placeholder="text" formControlName="username"/>
+        </label>
+        <ng-container *ngIf="loginForm.controls['username']?.errors">
+            <small class = "text-black" *ngIf="loginForm.controls['username']?.touched">
+            Username cannot be empty
+            </small>
+            
+        </ng-container>
+
+        
+    
+        <label class= "flex flex-col">
+            Password:
+            <input class="bg-orange-100 px-5 py-2 rounded-md shadow-2xl transition focus:ease-out focus:scale-110 duration-300 shadow-orange-700 text-black" type="password" placeholder="Password" formControlName="password"/>
+        </label>
+        <ng-container class = "text-black" *ngIf="loginForm.controls['password']?.touched">
+            <small>Password cannot be empty</small>
+        </ng-container>
+      
+    
+        <button type="submit" class ="bg-yellow-950 px-5 py-2 text-white rounded-md shadow-xl transition hover:ease-out hover:scale-110 duration-300">Login</button>
+    
+        <a class="text-white underline underline-offset-4" routerLink="/login">Already have an account?</a>
+    
+    </form>
+    
+</div>
