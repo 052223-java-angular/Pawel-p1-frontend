@@ -7,17 +7,32 @@
             Username:
             <input class="bg-orange-100 px-5 py-2 rounded-md shadow-2xl transition focus:ease-out focus:scale-110 duration-300 shadow-orange-700 text-black" type="username" placeholder="text" formControlName="username"/>
         </label>
+        <ng-container *ngIf="registerForm.controls['username']?.errors">
+            <small class = "text-black" *ngIf="registerForm.controls['username']?.touched">
+            Username cannot be empty
+            </small>
+            <small class = "text-black" *ngIf="registerForm.controls['username']?.errors?.['pattern']">
+                Username needs to 8-20 characters long
+                </small>
+        </ng-container>
+
+        
     
         <label class= "flex flex-col">
             Password:
             <input class="bg-orange-100 px-5 py-2 rounded-md shadow-2xl transition focus:ease-out focus:scale-110 duration-300 shadow-orange-700 text-black" type="password" placeholder="Password" formControlName="password"/>
-    
         </label>
+        <ng-container class = "text-black" *ngIf="registerForm.controls['password']?.touched">
+            <small>Password cannot be empty</small>
+        </ng-container>
         <label class= "flex flex-col">
             Confirm Password:
             <input class="bg-orange-100 px-5 py-2 rounded-md shadow-2xl transition focus:ease-out focus:scale-110 duration-300 shadow-orange-700 text-black" type="password" placeholder="confirmedPassword Password" formControlName="confirmedPassword"/>
     
         </label>
+        <ng-container class = "text-black" *ngIf="registerForm.controls['confirmedPassword']?.touched">
+            <small>Confirm password cannot be empty</small>
+        </ng-container>
     
         <button type="submit" class ="bg-yellow-950 px-5 py-2 text-white rounded-md shadow-xl transition hover:ease-out hover:scale-110 duration-300">Register</button>
     

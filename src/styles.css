@@ -2,3 +2,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.body{
+
+    @apply font-mono;
+    padding-bottom: 60px;
+}
+.toast-success{
+
+    @apply mb-20;
+    @apply: absolute;
+    @apply: bottom-0;
+    
+    @apply: left-10;
+}
