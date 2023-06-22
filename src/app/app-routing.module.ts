@@ -5,12 +5,15 @@ import { AboutComponent } from './pages/about/about.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+import { BeerlistComponent } from './pages/beerlist/beerlist.component';
+
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'beers', component: BeerlistComponent},
   // Wildcard route for a 404 page-should be last
   {path: '**', component: NotFoundComponent}];
   
