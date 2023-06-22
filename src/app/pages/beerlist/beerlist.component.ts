@@ -1,5 +1,3 @@
-Beerlist.component.ts
-
 
 import { Component } from '@angular/core';
 import { Beer } from 'src/app/models/beer';
