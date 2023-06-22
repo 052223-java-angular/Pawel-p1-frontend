@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,8 +13,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // required animations module
-import { ToastrModule } from 'ngx-toastr'; // ToastrModule added
-
+import { ToastrModule } from 'ngx-toastr';
+import { BeerlistComponent } from './pages/beerlist/beerlist.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,9 @@ import { ToastrModule } from 'ngx-toastr'; // ToastrModule added
     AboutComponent,
     NotFoundComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    BeerlistComponent,
+    
 
   ],
   imports: [
@@ -30,7 +35,9 @@ import { ToastrModule } from 'ngx-toastr'; // ToastrModule added
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule, // required animations module
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatTableModule, // required animations module
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-bottom-right',
