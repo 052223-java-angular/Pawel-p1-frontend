@@ -1,10 +1,11 @@
 <!-- This is the profile page. It displays the user's profile information. -->
 <div *ngIf="userProfile" class="space-y-6">
 
-    <div class="flex space-x-6">
+    <!-- User Profile and Additional Information Section -->
+    <div class="bg-white p-6 rounded-lg shadow flex space-x-6">
   
       <!-- User Profile Section -->
-      <div class="bg-white p-6 rounded-lg shadow flex-1">
+      <div class="flex-1">
         <h2 class="text-2xl font-semibold mb-4">User Profile</h2>
         <p class="text-lg text-gray-800"><strong>ID:</strong> {{userProfile.id}}</p>
         <p class="text-lg text-gray-800"><strong>Username:</strong> {{userProfile.username}}</p>
@@ -12,7 +13,7 @@
       </div>
   
       <!-- Additional Information Section -->
-      <div class="bg-white p-6 rounded-lg shadow flex-1">
+      <div class="flex-1">
         <h2 class="text-2xl font-semibold mb-4">Additional Information</h2>
         <p class="text-lg text-gray-800"><strong>PRP:</strong> {{userProfile.prp}}</p>
         <p class="text-lg text-gray-800"><strong>Bio:</strong> {{userProfile.bio}}</p>
@@ -24,7 +25,7 @@
     <div *ngIf="userProfile.reviews.length" class="bg-white p-6 rounded-lg shadow">
       <h2 class="text-2xl font-semibold mb-4">Reviews</h2>
       <ul class="list-disc list-inside">
-        <li *ngFor="let review of userProfile.reviews" class="text-lg text-gray-800">{{review}}</li>
+        <li *ngFor="let review of userProfile.reviews" class="text-lg text-gray-800">Rating: {{review.rating}}, Comment: {{review.comment}}</li>
       </ul>
     </div>
   
@@ -32,7 +33,7 @@
     <div *ngIf="userProfile.favorites.length" class="bg-white p-6 rounded-lg shadow">
       <h2 class="text-2xl font-semibold mb-4">Favorites</h2>
       <ul class="list-disc list-inside">
-        <li *ngFor="let favorite of userProfile.favorites" class="text-lg text-gray-800">{{favorite}}</li>
+        <li *ngFor="let favorite of userProfile.favorites" class="text-lg text-gray-800">Favorite ID: {{favorite.id}}</li>
       </ul>
     </div>
   
