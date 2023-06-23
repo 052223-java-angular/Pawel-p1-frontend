@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Beer } from '../models/beer';
 
 @Injectable({
@@ -16,7 +16,10 @@ export class BeerService {
   }
 
   getBeerById(id: string): Observable<Beer> {
-    return this.http.get<Beer>(`${this.BASE_URL}/beers/${id}`);
+    return this.http.get<Beer>(`${this.BASE_URL}/beers/${id}`).pipe(
+      tap(beer => console.log(beer))  
+    );
   }
-  // Add addBeer, updateBeer, etc.
+
 }
+  
