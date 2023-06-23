@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'beerme';
+  @ViewChild('sidenav', {static: false}) sidenav!: MatSidenav;
+
+  ngAfterViewInit(): void {
+    console.log(this.sidenav);  
+  }
+
+  toggle(): void {
+    console.log('Toggling sidenav'); 
+    this.sidenav.toggle();
+  }
 }

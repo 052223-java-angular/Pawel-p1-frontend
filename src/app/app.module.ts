@@ -19,7 +19,11 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './pages/profile/profile.component';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -36,6 +40,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     BeerlistComponent,
     ProfileComponent,
     
+    
 
   ],
   imports: [
@@ -46,6 +51,11 @@ import { ProfileComponent } from './pages/profile/profile.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatTableModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
     CommonModule, // required animations module
     ToastrModule.forRoot({
       timeOut: 3000,
