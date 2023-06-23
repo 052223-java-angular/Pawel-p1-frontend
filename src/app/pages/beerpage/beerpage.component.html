@@ -1,1 +1,19 @@
-<p>beerpage works!</p>
+<div *ngIf="beer" class="container mx-auto my-5 p-5 bg-white rounded shadow-lg">
+    <h1 class="text-3xl font-semibold mb-2">{{ beer?.name }}</h1>
+    <h2 class="text-xl mb-2">{{ beer?.style }}</h2>
+    <h3 class="text-lg mb-4">ABV: {{ beer?.abv }}</h3>
+    <h4 class="text-lg mb-2">Brewery: {{ beer?.brewery?.name }}</h4>
+    
+    <h2 class="text-2xl mt-5 mb-3">Reviews</h2>
+    <div *ngFor="let review of beer.reviews" class="mb-4">
+      <h3 class="text-lg">{{ review.author }}</h3>
+      <p>{{ review.content }}</p>
+      <p>Rating: {{ review.rating }}</p>
+    </div>
+    
+    <h2 class="text-2xl mt-5 mb-3">Favorites</h2>
+    <div *ngFor="let favorite of beer.favorites" class="mb-2">
+      <p>User: {{ favorite.user }}</p>
+    </div>
+  </div>
+  

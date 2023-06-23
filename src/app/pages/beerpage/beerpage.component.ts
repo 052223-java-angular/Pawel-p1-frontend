@@ -21,6 +21,9 @@ export class BeerpageComponent implements OnInit {
   }
 
   getBeer(id: string): void {
-    this.beerService.getBeerById(id).subscribe(beer => this.beer = beer);
-  }
-}
+    this.beerService.getBeerById('1').subscribe((beer: Beer) => {
+      this.beer = beer;
+    }, (error) => {
+      console.log(error);
+    });
+  }}    
