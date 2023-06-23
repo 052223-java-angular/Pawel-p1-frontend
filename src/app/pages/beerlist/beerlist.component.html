@@ -1,11 +1,12 @@
-
 <h1 class="text-2xl font-bold text-center py-4 bg-yellow-500 text-white">Beers</h1>
 
 <mat-table [dataSource]="beers">
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let beer"> {{beer.name}} </mat-cell>
+      <mat-cell *matCellDef="let beer"> 
+        <a [routerLink]="['/beer', beer.id]" class="text-blue-500 hover:underline">{{beer.name}}</a>
+      </mat-cell>
     </ng-container>
   
     <!-- Style Column -->
@@ -22,5 +23,4 @@
   
     <mat-header-row *matHeaderRowDef="['name', 'style', 'abv']"></mat-header-row>
     <mat-row *matRowDef="let row; columns: ['name', 'style', 'abv']"></mat-row>
-  </mat-table>
-  
+</mat-table>

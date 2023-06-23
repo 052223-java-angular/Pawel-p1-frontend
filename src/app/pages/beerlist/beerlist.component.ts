@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { Beer } from 'src/app/models/beer';
 import { BeerService } from 'src/app/services/beerservice.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-beerlist',
