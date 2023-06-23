@@ -1,31 +1,40 @@
-<mat-card *ngIf="userProfile">
-    <mat-card-header>
-      <mat-card-title>Edit Profile</mat-card-title>
-    </mat-card-header>
-    
-    <mat-card-content>
-      <form>
-        <mat-form-field appearance="fill">
-          <mat-label>Username</mat-label>
-          <input matInput [(ngModel)]="userProfile.username" name="username">
-        </mat-form-field>
-        
-        <!-- <mat-form-field appearance="fill">
-          <mat-label>Full Name</mat-label>
-          <input matInput [(ngModel)]="userProfile.fullName" name="fullName">
-        </mat-form-field> -->
-        
-        <mat-form-field appearance="fill">
-          <mat-label>Email</mat-label>
-          <input matInput [(ngModel)]="userProfile.email" name="email">
-        </mat-form-field>
-        
-        <!-- Add other fields as necessary -->
-      </form>
-    </mat-card-content>
-    
-    <mat-card-actions>
-      <button mat-button color="primary">Save</button>
-    </mat-card-actions>
-  </mat-card>
+<!-- This is the profile page. It displays the user's profile information. -->
+<div *ngIf="userProfile" class="space-y-6">
+
+    <div class="flex space-x-6">
+  
+      <!-- User Profile Section -->
+      <div class="bg-white p-6 rounded-lg shadow flex-1">
+        <h2 class="text-2xl font-semibold mb-4">User Profile</h2>
+        <p class="text-lg text-gray-800"><strong>ID:</strong> {{userProfile.id}}</p>
+        <p class="text-lg text-gray-800"><strong>Username:</strong> {{userProfile.username}}</p>
+        <p class="text-lg text-gray-800"><strong>Password:</strong> {{userProfile.password}}</p>
+      </div>
+  
+      <!-- Additional Information Section -->
+      <div class="bg-white p-6 rounded-lg shadow flex-1">
+        <h2 class="text-2xl font-semibold mb-4">Additional Information</h2>
+        <p class="text-lg text-gray-800"><strong>PRP:</strong> {{userProfile.prp}}</p>
+        <p class="text-lg text-gray-800"><strong>Bio:</strong> {{userProfile.bio}}</p>
+      </div>
+  
+    </div>
+  
+    <!-- Reviews Section -->
+    <div *ngIf="userProfile.reviews.length" class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-semibold mb-4">Reviews</h2>
+      <ul class="list-disc list-inside">
+        <li *ngFor="let review of userProfile.reviews" class="text-lg text-gray-800">{{review}}</li>
+      </ul>
+    </div>
+  
+    <!-- Favorites Section -->
+    <div *ngIf="userProfile.favorites.length" class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-semibold mb-4">Favorites</h2>
+      <ul class="list-disc list-inside">
+        <li *ngFor="let favorite of userProfile.favorites" class="text-lg text-gray-800">{{favorite}}</li>
+      </ul>
+    </div>
+  
+  </div>
   

@@ -17,6 +17,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { BeerlistComponent } from './pages/beerlist/beerlist.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import { CommonModule } from '@angular/common';
+import { ProfileComponent } from './pages/profile/profile.component';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +34,7 @@ import {MatTableModule} from '@angular/material/table';
     RegisterComponent,
     LoginComponent,
     BeerlistComponent,
+    ProfileComponent,
     
 
   ],
@@ -37,7 +45,8 @@ import {MatTableModule} from '@angular/material/table';
     HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatTableModule, // required animations module
+    MatTableModule,
+    CommonModule, // required animations module
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-bottom-right',

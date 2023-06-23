@@ -16,3 +16,4 @@
     
     @apply: left-10;
 }
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
