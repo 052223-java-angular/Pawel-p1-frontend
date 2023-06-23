@@ -19,8 +19,13 @@ export class ProfileComponent implements OnInit {
     if(usernameFromRoute) {
       this.username = usernameFromRoute;
     // fetch user profile from the backend
-    this.http.get<User>(`http://localhost:8081/auth/profile/${this.username}`).subscribe(user => {
+    this.http.get<User>(`http://localhost:8081/beerme/api/auth/profile/${this.username}`).subscribe(user => {
       this.userProfile = user;
+      console.log(this.userProfile);
+    
+    },
+    error => {
+      console.error('There was an error!', error);
     });
     }
 
