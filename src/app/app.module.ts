@@ -24,6 +24,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { BeerpageComponent } from './beerpage/beerpage.component';
 
 
 
@@ -39,6 +40,7 @@ import { MatListModule } from '@angular/material/list';
     LoginComponent,
     BeerlistComponent,
     ProfileComponent,
+    BeerpageComponent,
     
     
 

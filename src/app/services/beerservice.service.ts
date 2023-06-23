@@ -15,5 +15,8 @@ export class BeerService {
     return this.http.get<Beer[]>(`${this.BASE_URL}/beers`);
   }
 
-  // Add getBeerById, addBeer, updateBeer, etc.
+  getBeerById(id: string): Observable<Beer> {
+    return this.http.get<Beer>(`${this.BASE_URL}/beers/${id}`);
+  }
+  // Add addBeer, updateBeer, etc.
 }
