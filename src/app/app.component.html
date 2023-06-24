@@ -16,7 +16,7 @@
                     <a mat-list-item routerLink="/search" class="px-6 py-2 hover:bg-yellow-600">Search</a>
                     <a mat-list-item routerLink="/favorites" class="px-6 py-2 hover:bg-yellow-600">My Favorites</a>
                     <a mat-list-item routerLink="/feed" class="px-6 py-2 hover:bg-yellow-600">My Feed</a>
-                    <a mat-list-item routerLink="/feed" class="px-6 py-2 hover:bg-yellow-600">My Profile</a>
+                    <a mat-list-item [routerLink]="['/profile', authService.user?.username]" class="px-6 py-2 hover:bg-yellow-600">My Profile</a>
 
                 </mat-nav-list>
             </mat-sidenav>

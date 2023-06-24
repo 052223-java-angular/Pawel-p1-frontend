@@ -28,6 +28,8 @@ import { BeerpageComponent } from './pages/beerpage/beerpage.component';
 import { BeerSearchComponent } from './pages/search/search.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth.interceptor.service';
 
 
 
@@ -69,7 +71,7 @@ import { MatInputModule } from '@angular/material/input';
       preventDuplicates: true,
     }), // ToastrModule added
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

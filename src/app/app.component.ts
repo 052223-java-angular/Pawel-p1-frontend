@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { AuthServiceService } from './services/auth-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +11,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class AppComponent {
   @ViewChild('sidenav', {static: false}) sidenav!: MatSidenav;
 
+  constructor(public authService: AuthServiceService, private router: Router) { }
+
   ngAfterViewInit(): void {
     console.log(this.sidenav);  
   }
@@ -16,5 +20,10 @@ export class AppComponent {
   toggle(): void {
     console.log('Toggling sidenav'); 
     this.sidenav.toggle();
+  }
+
+  navigateToProfile(): void {
+    const username = this.authService.getUsernameFromLocalStorage();
+    this.router.navigate([`/profile/${username}`]);
   }
 }
