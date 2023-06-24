@@ -25,7 +25,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { BeerpageComponent } from './pages/beerpage/beerpage.component';
-
+import { BeerSearchComponent } from './pages/search/search.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -41,9 +43,7 @@ import { BeerpageComponent } from './pages/beerpage/beerpage.component';
     BeerlistComponent,
     ProfileComponent,
     BeerpageComponent,
-    
-    
-
+    BeerSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +58,11 @@ import { BeerpageComponent } from './pages/beerpage/beerpage.component';
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    CommonModule, // required animations module
+    CommonModule,
+    MatTableModule, // import table module
+    MatFormFieldModule, // import form field module
+    MatInputModule, // import input module
+    MatSidenavModule, // import sidenav module // required animations module
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-bottom-right',
