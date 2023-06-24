@@ -11,7 +11,11 @@ import { Router } from '@angular/router';
 export class AppComponent {
   @ViewChild('sidenav', {static: false}) sidenav!: MatSidenav;
 
-  constructor(public authService: AuthServiceService, private router: Router) { }
+  username: string;
+
+  constructor(public authService: AuthServiceService, private router: Router) { 
+    this.username = this.authService.getUsernameFromLocalStorage();
+  }
 
   ngAfterViewInit(): void {
     console.log(this.sidenav);  
@@ -25,5 +29,9 @@ export class AppComponent {
   navigateToProfile(): void {
     const username = this.authService.getUsernameFromLocalStorage();
     this.router.navigate([`/profile/${username}`]);
+  }
+  navigateToMyBeers(): void {
+    const username = this.authService.getUsernameFromLocalStorage();
+    this.router.navigate([`/beers/${username}`]);
   }
 }

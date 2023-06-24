@@ -22,7 +22,7 @@ export class AuthServiceService {
     return this.http.post<Auth>('http://localhost:8081/beerme/api/auth/login', loginPayload)
       .pipe(
         tap(user => {
-        
+          console.log('Logged in user:', user);
           this.user = user;
 
           
@@ -36,12 +36,14 @@ export class AuthServiceService {
   
   getUserFromLocalStorage(): Auth | null {
     const user = localStorage.getItem('user');
+    console.log('User from localStorage:', user);
     return user ? JSON.parse(user) : null;
   }
 
   
   getUsernameFromLocalStorage(): string {
     const user = this.getUserFromLocalStorage();
+    console.log('Username from localStorage:', user ? user.username : '');
     return user ? user.username : '';
   }
 }

@@ -59,7 +59,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(payload).subscribe( {
       next: value => {
          this.toastr.success('Login Successful');
-         this.router.navigate(['/reviews']);
+         localStorage.setItem('token', value.token);  // store token in local storage
+         this.router.navigate([`/profile/${value.username}`]);
          
     },
       
