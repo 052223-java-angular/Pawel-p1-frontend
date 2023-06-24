@@ -24,7 +24,4 @@ export class BeerlistComponent {
   getBeers(): void {
     this.beerService.getBeers().subscribe(beers => this.beers = beers);
   }
-
-  
-
 }

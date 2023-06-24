@@ -30,6 +30,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor.service';
+import { UserBeerlistComponent } from './pages/userbeerlist/userbeerlist.component';
 
 
 
@@ -45,7 +46,8 @@ import { AuthInterceptor } from './services/auth.interceptor.service';
     BeerlistComponent,
     ProfileComponent,
     BeerpageComponent,
-    BeerSearchComponent
+    BeerSearchComponent,
+    UserBeerlistComponent
   ],
   imports: [
     BrowserModule,
