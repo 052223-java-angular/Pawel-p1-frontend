@@ -13,13 +13,18 @@
       </div>
   
       <!-- Additional Information Section -->
-      <div class="flex-1">
-        <h2 class="text-2xl font-semibold mb-4">Additional Information</h2>
-        <p class="text-lg text-gray-800"><strong>PRP:</strong> {{userProfile.prp}}</p>
-        <p class="text-lg text-gray-800"><strong>Bio:</strong> {{userProfile.bio}}</p>
-      </div>
-  
-    </div>
+<div class="flex-1" [formGroup]="profileForm">
+  <h2 class="text-2xl font-semibold mb-4">Additional Information</h2>
+  <label>
+    <span class="text-lg text-gray-800"><strong>PRP:</strong></span>
+    <input type="text" formControlName="prp" class="border rounded p-1 mt-2 w-full">
+  </label>
+  <label>
+    <span class="text-lg text-gray-800"><strong>Bio:</strong></span>
+    <textarea formControlName="bio" class="border rounded p-1 mt-2 w-full"></textarea>
+  </label>
+  <button (click)="onSubmit()" class="mt-4 bg-yellow-700 text-white px-4 py-2 rounded">Save Changes</button>
+</div>
   
     <!-- Reviews Section -->
     <div *ngIf="userProfile.reviews.length" class="bg-white p-6 rounded-lg shadow">

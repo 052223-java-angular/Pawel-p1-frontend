@@ -20,6 +20,7 @@ const routes: Routes = [
   {path: 'beers', component: BeerlistComponent},
   { path: 'beer/:id', component: BeerpageComponent },
   {path: 'profile/:username', component: ProfileComponent},
+  { path: 'beers/:username', component: BeerlistComponent },
   // Wildcard route for a 404 page-should be last
   {path: 'search', component: BeerSearchComponent},
   {path: '**', component: NotFoundComponent}];
