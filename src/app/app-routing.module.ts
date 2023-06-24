@@ -9,6 +9,7 @@ import { BeerlistComponent } from './pages/beerlist/beerlist.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { BeerpageComponent } from './pages/beerpage/beerpage.component';
 import { BeerSearchComponent } from './pages/search/search.component';
+import { UserBeerlistComponent } from './pages/userbeerlist/userbeerlist.component';
 
 
 
@@ -20,7 +21,9 @@ const routes: Routes = [
   {path: 'beers', component: BeerlistComponent},
   { path: 'beer/:id', component: BeerpageComponent },
   {path: 'profile/:username', component: ProfileComponent},
-  { path: 'beers/:username', component: BeerlistComponent },
+  {path: 'beers', component: BeerlistComponent},
+  {path: 'user-beers/:username', component: UserBeerlistComponent},
+
   // Wildcard route for a 404 page-should be last
   {path: 'search', component: BeerSearchComponent},
   {path: '**', component: NotFoundComponent}];

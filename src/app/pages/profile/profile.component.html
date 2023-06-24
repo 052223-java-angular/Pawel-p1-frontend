@@ -1,31 +1,42 @@
 <!-- This is the profile page. It displays the user's profile information. -->
 <div *ngIf="userProfile" class="space-y-6">
 
-    <!-- User Profile and Additional Information Section -->
-    <div class="bg-white p-6 rounded-lg shadow flex space-x-6">
+  <!-- User Profile and Additional Information Section -->
+  <div class="bg-white p-6 rounded-lg shadow flex space-x-6">
   
-      <!-- User Profile Section -->
-      <div class="flex-1">
-        <h2 class="text-2xl font-semibold mb-4">User Profile</h2>
-        <p class="text-lg text-gray-800"><strong>ID:</strong> {{userProfile.id}}</p>
-        <p class="text-lg text-gray-800"><strong>Username:</strong> {{userProfile.username}}</p>
-        <p class="text-lg text-gray-800"><strong>Password:</strong> {{userProfile.password}}</p>
-      </div>
+    <!-- User Profile Section -->
+    <div class="flex-1">
+      <h2 class="text-2xl font-semibold mb-4">User Profile</h2>
+      <p class="text-lg text-gray-800"><strong>ID:</strong> {{userProfile.id}}</p>
+      <p class="text-lg text-gray-800"><strong>Username:</strong> {{userProfile.username}}</p>
+      <p class="text-lg text-gray-800"><strong>Password:</strong> {{userProfile.password}}</p>
+    </div>
   
-      <!-- Additional Information Section -->
-<div class="flex-1" [formGroup]="profileForm">
-  <h2 class="text-2xl font-semibold mb-4">Additional Information</h2>
-  <label>
-    <span class="text-lg text-gray-800"><strong>PRP:</strong></span>
-    <input type="text" formControlName="prp" class="border rounded p-1 mt-2 w-full">
-  </label>
-  <label>
-    <span class="text-lg text-gray-800"><strong>Bio:</strong></span>
-    <textarea formControlName="bio" class="border rounded p-1 mt-2 w-full"></textarea>
-  </label>
-  <button (click)="onSubmit()" class="mt-4 bg-yellow-700 text-white px-4 py-2 rounded">Save Changes</button>
-</div>
-  
+    <!-- Additional Information Section -->
+    <div class="flex-1">
+      <h2 class="text-2xl font-semibold mb-4">Additional Information</h2>
+      
+      <ng-container *ngIf="editMode; else displayMode">
+        <form [formGroup]="profileForm">
+          <label>
+            <span class="text-lg text-gray-800"><strong>PRP:</strong></span>
+            <input type="text" formControlName="prp" class="border rounded p-1 mt-2 w-full">
+          </label>
+          <label>
+            <span class="text-lg text-gray-800"><strong>Bio:</strong></span>
+            <textarea formControlName="bio" class="border rounded p-1 mt-2 w-full"></textarea>
+          </label>
+          <button (click)="onSubmit()" class="mt-4 bg-yellow-700 text-white px-4 py-2 rounded">Save Changes</button>
+        </form>
+      </ng-container>
+    
+      <ng-template #displayMode>
+        <p class="text-lg text-gray-800"><strong>PRP:</strong> {{userProfile.prp}}</p>
+        <p class="text-lg text-gray-800"><strong>Bio:</strong> {{userProfile.bio}}</p>
+        <button (click)="toggleEditMode()" class="mt-4 bg-yellow-700 text-white px-4 py-2 rounded">Edit</button>
+      </ng-template>
+    </div>
+
     <!-- Reviews Section -->
     <div *ngIf="userProfile.reviews.length" class="bg-white p-6 rounded-lg shadow">
       <h2 class="text-2xl font-semibold mb-4">Reviews</h2>
@@ -41,6 +52,5 @@
         <li *ngFor="let favorite of userProfile.favorites" class="text-lg text-gray-800">Favorite ID: {{favorite.id}}</li>
       </ul>
     </div>
-  
   </div>
-  
+</div>

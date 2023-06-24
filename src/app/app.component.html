@@ -1,25 +1,18 @@
-<!-- <h1 class= "font-bold text-7xl italic" >Angular 2 App</h1>
-<br>
-<br>
-<br>  -->
 <div class="flex flex-col min-h-screen">
     <app-navbar></app-navbar>
     <div class="flex-grow">   
         <mat-sidenav-container class="h-screen">
             <mat-sidenav #sidenav class="w-64 bg-yellow-500 text-white" mode="over">
                 <mat-nav-list class="space-y-2 py-8">
-                   <a mat-list-item routerLink="/home" class="px-6 py-2 hover:bg-yellow-600">
-    <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-</a>
-
+                    <a mat-list-item routerLink="/home" class="px-6 py-2 hover:bg-yellow-600">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+                    </a>
                     <a mat-list-item routerLink="/beers" class="px-6 py-2 hover:bg-yellow-600">All Beers</a>
-                    <a mat-list-item [routerLink]="['/beers', username]" class="px-6 py-2 hover:bg-yellow-600">My Beers</a>
-
+                    <a mat-list-item [routerLink]="['/user-beers', username]" class="px-6 py-2 hover:bg-yellow-600">My Beers</a>
                     <a mat-list-item routerLink="/search" class="px-6 py-2 hover:bg-yellow-600">Search</a>
                     <a mat-list-item routerLink="/favorites" class="px-6 py-2 hover:bg-yellow-600">My Favorites</a>
                     <a mat-list-item routerLink="/feed" class="px-6 py-2 hover:bg-yellow-600">My Feed</a>
                     <a mat-list-item [routerLink]="['/profile', authService.user?.username]" class="px-6 py-2 hover:bg-yellow-600">My Profile</a>
-
                 </mat-nav-list>
             </mat-sidenav>
             <mat-sidenav-content>
@@ -27,7 +20,6 @@
                     <button mat-icon-button (click)="sidenav.toggle()" class="text-white w-10 h-10 mr-2">
                         <mat-icon>more_vert</mat-icon>
                     </button>
-                    
                     <span>BeerME</span>
                 </mat-toolbar>
                 <router-outlet></router-outlet>

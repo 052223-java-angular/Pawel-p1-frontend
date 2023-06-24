@@ -32,6 +32,6 @@ export class AppComponent {
   }
   navigateToMyBeers(): void {
     const username = this.authService.getUsernameFromLocalStorage();
-    this.router.navigate([`/beers/${username}`]);
+    this.router.navigate([`/user-beers/${username}`]);
   }
 }

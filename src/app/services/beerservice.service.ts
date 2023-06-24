@@ -21,5 +21,10 @@ export class BeerService {
     );
   }
 
+  getUserBeers(username: string): Observable<Beer[]> {
+    return this.http.get<Beer[]>(`${this.BASE_URL}/${username}`).pipe(
+      tap(beer => console.log(beer)));
+  }
+
 }
   
