@@ -5,13 +5,17 @@
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
     <mat-cell *matCellDef="let review"> {{review.beer}} </mat-cell>
+    
    
   </ng-container>
  
   <!-- User Column -->
   <ng-container matColumnDef="abv">
     <mat-header-cell *matHeaderCellDef> User Name </mat-header-cell>
-    <mat-cell *matCellDef="let review"> {{review.user}} </mat-cell>
+    <mat-cell *matCellDef="let review"> {{review.user}} 
+
+      
+    </mat-cell>
   </ng-container>
    
   <!-- Style Column -->

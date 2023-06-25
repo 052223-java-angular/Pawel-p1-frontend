@@ -19,7 +19,7 @@ export interface Review {
   
   id: string;
   author: string;
-  content: string;
+  comment: string;
   rating: number;
   
 }

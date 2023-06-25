@@ -33,6 +33,7 @@ export class UserBeerlistComponent implements OnInit {
 
   getBeers(): void {
     this.beerService.getUserBeers(this.username).subscribe(beers => this.beers = beers);
+    
   }
 
   getReviews(): void {
