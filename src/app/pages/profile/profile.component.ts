@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from 'src/app/models/user';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,17 +11,18 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  username!: string;
+  username?: string;
   userProfile!: User;
   profileForm!: FormGroup;
   editMode = false;
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient, private authService : AuthServiceService) { }
 
   ngOnInit(): void {
-    const usernameFromRoute = this.route.snapshot.paramMap.get('username');
-    if(usernameFromRoute) {
-      this.username = usernameFromRoute;
+    this.username = this.authService.getUsernameFromLocalStorage();
+    //const usernameFromRoute = this.route.snapshot.paramMap.get('username');
+    if(this.username) {
+      //this.username = usernameFromRoute;
       // fetch user profile from the backend
       this.http.get<User>(`http://localhost:8081/beerme/api/auth/profile/${this.username}`).subscribe(user => {
         this.userProfile = user;

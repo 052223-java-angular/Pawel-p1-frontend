@@ -1,34 +1,32 @@
-<h1 class="text-2xl font-bold text-center py-4 bg-yellow-500 text-white">{{username}}'s Beers</h1>
 
-<mat-table [dataSource]="beers">
+<mat-table [dataSource]="reviews">
 
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-    <mat-cell *matCellDef="let beer"> 
-      <a [routerLink]="['/beer', beer.id]" class="text-blue-500 hover:underline">{{beer.name}}</a>
-    </mat-cell>
+    <mat-cell *matCellDef="let review"> {{review.beer}} </mat-cell>
+   
   </ng-container>
-  
+ 
+  <!-- User Column -->
+  <ng-container matColumnDef="abv">
+    <mat-header-cell *matHeaderCellDef> User Name </mat-header-cell>
+    <mat-cell *matCellDef="let review"> {{review.user}} </mat-cell>
+  </ng-container>
+   
   <!-- Style Column -->
   <ng-container matColumnDef="style">
-    <mat-header-cell *matHeaderCellDef> Style </mat-header-cell>
-    <mat-cell *matCellDef="let beer"> {{beer.style}} </mat-cell>
+    <mat-header-cell *matHeaderCellDef> Rating </mat-header-cell>
+    <mat-cell *matCellDef="let review"> {{review.rating}} </mat-cell>
   </ng-container>
   
-  <!-- ABV Column -->
-  <ng-container matColumnDef="abv">
-    <mat-header-cell *matHeaderCellDef> ABV </mat-header-cell>
-    <mat-cell *matCellDef="let beer"> {{beer.abv}} </mat-cell>
-  </ng-container>
 
   <!-- Review Column -->
   <ng-container matColumnDef="review">
     <mat-header-cell *matHeaderCellDef> Review </mat-header-cell>
-    <mat-cell *matCellDef="let beer">
-      <button (click)="addReview(beer.name)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Review</button>
+    <mat-cell *matCellDef="let review">
       <br>
-      <textarea [(ngModel)]="beer.comment" placeholder="Enter your comment" class="mt-2"></textarea>
+      <p>{{ review.comment }}</p>
     </mat-cell>
   </ng-container>
 

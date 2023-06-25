@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Beer } from '../models/beer';
+import { Review } from '../models/review';
+import { ReviewDTO } from '../models/reviewDTO';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BeerService {
-  private BASE_URL = 'http://localhost:8081/beerme/auth';
+  private BASE_URL = 'http://localhost:8081/beerme/api/auth';
 
   constructor(private http: HttpClient) {}
 
@@ -16,15 +18,13 @@ export class BeerService {
   }
 
   getBeerById(id: string): Observable<Beer> {
-    return this.http.get<Beer>(`${this.BASE_URL}/beers/${id}`).pipe(
-      tap(beer => console.log(beer))  
-    );
+    return this.http.get<Beer>(`${this.BASE_URL}/beers/${id}`);
   }
 
   getUserBeers(username: string): Observable<Beer[]> {
-    return this.http.get<Beer[]>(`${this.BASE_URL}/${username}`).pipe(
-      tap(beer => console.log(beer)));
+    return this.http.get<Beer[]>(`${this.BASE_URL}/user/${username}/beers`);
   }
+
   addReview(username: string, beername: string, rating: string, comment: string): Observable<any> {
     const url = `${this.BASE_URL}/review`;
     const reviewRequest = {
@@ -39,7 +39,8 @@ export class BeerService {
   addBeer(beer: Beer): Observable<Beer> {
     return this.http.post<Beer>(`${this.BASE_URL}/beers`, beer);
   }
-  
 
-}
-  
+  getUserReviews(username: string): Observable<ReviewDTO[]> {
+    return this.http.get<ReviewDTO[]>(`${this.BASE_URL}/${username}/reviews`);
+  }
+}  

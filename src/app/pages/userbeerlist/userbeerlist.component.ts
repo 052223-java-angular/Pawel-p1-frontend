@@ -1,7 +1,12 @@
+//userbeerlist.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Beer } from 'src/app/models/beer';
 import { BeerService } from 'src/app/services/beerservice.service';
+import { Review } from 'src/app/models/review';
+import { ReviewDTO } from 'src/app/models/reviewDTO';
+
 
 @Component({
   selector: 'app-user-beerlist',
@@ -10,6 +15,7 @@ import { BeerService } from 'src/app/services/beerservice.service';
 })
 export class UserBeerlistComponent implements OnInit {
   beers: Beer[] = [];
+  reviews : ReviewDTO[] = [];
   username: string = '';
 
   constructor(
@@ -21,6 +27,7 @@ export class UserBeerlistComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.username = params['username'];
       this.getBeers();
+      this.getReviews();
     });
   }
 
@@ -28,17 +35,8 @@ export class UserBeerlistComponent implements OnInit {
     this.beerService.getUserBeers(this.username).subscribe(beers => this.beers = beers);
   }
 
-  addReview(beername: string): void {
-    const rating = window.prompt('Enter the rating: ');
-    const comment = window.prompt('Enter your comment: ');
-    if (rating && comment) {
-      this.beerService.addReview(this.username, beername, rating, comment)
-        .subscribe((response: any) => {
-          console.log(response);
-          // Optionally, refresh the beers list or do something else
-        }, (error: any) => {
-          console.error(error);
-        });
-    }
+  getReviews(): void {
+    this.beerService.getUserReviews(this.username).subscribe(reviews => this.reviews = reviews); 
   }
-}
+  }
+
