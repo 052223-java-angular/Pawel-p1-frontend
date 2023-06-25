@@ -10,7 +10,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // required animations module
 import { ToastrModule } from 'ngx-toastr';
@@ -31,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor.service';
 import { UserBeerlistComponent } from './pages/userbeerlist/userbeerlist.component';
+import { AddBeerReviewComponent } from './pages/addbeerreview/addbeerreview.component';
 
 
 
@@ -47,7 +48,9 @@ import { UserBeerlistComponent } from './pages/userbeerlist/userbeerlist.compone
     ProfileComponent,
     BeerpageComponent,
     BeerSearchComponent,
-    UserBeerlistComponent
+    UserBeerlistComponent,
+    AddBeerReviewComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,9 @@ import { UserBeerlistComponent } from './pages/userbeerlist/userbeerlist.compone
     MatTableModule, // import table module
     MatFormFieldModule, // import form field module
     MatInputModule, // import input module
-    MatSidenavModule, // import sidenav module // required animations module
+    MatSidenavModule, 
+    FormsModule,// import sidenav module // required animations module
+    
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-bottom-right',

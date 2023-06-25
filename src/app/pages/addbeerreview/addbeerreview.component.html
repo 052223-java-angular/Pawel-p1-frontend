@@ -1,0 +1,44 @@
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+      <div class="mb-4">
+        <h2 class="text-2xl text-center font-bold mb-5">Add Review</h2>
+        <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+          <div class="mb-4">
+            <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
+              Username
+            </label>
+            <input 
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" 
+            id="username" 
+            type="text" 
+            formControlName="username"
+            readonly
+          >          </div>
+          <div class="mb-6">
+            <label class="block text-grey-darker text-sm font-bold mb-2" for="beername">
+              Beer Name
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="beername" type="text" formControlName="beername">
+          </div>
+          <div class="mb-6">
+            <label class="block text-grey-darker text-sm font-bold mb-2" for="rating">
+              Rating
+            </label>
+            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="rating" formControlName="rating"></textarea>
+          </div>
+          <div class="mb-6">
+            <label class="block text-grey-darker text-sm font-bold mb-2" for="comment">
+              Comment
+            </label>
+            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="comment" formControlName="comment"></textarea>
+          </div>
+          <div class="flex items-center justify-between">
+            <button class="bg-blue-500 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="submit" [disabled]="!reviewForm.valid">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
