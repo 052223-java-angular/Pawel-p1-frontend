@@ -2,26 +2,37 @@
 
 <mat-table [dataSource]="beers">
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let beer"> 
-            <a [routerLink]="['/beer', beer.id]" class="text-blue-500 hover:underline">{{beer.name}}</a>
-        </mat-cell>
-    </ng-container>
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let beer"> 
+      <a [routerLink]="['/beer', beer.id]" class="text-blue-500 hover:underline">{{beer.name}}</a>
+    </mat-cell>
+  </ng-container>
   
-    <!-- Style Column -->
-    <ng-container matColumnDef="style">
-        <mat-header-cell *matHeaderCellDef> Style </mat-header-cell>
-        <mat-cell *matCellDef="let beer"> {{beer.style}} </mat-cell>
-    </ng-container>
+  <!-- Style Column -->
+  <ng-container matColumnDef="style">
+    <mat-header-cell *matHeaderCellDef> Style </mat-header-cell>
+    <mat-cell *matCellDef="let beer"> {{beer.style}} </mat-cell>
+  </ng-container>
   
-    <!-- ABV Column -->
-    <ng-container matColumnDef="abv">
-        <mat-header-cell *matHeaderCellDef> ABV </mat-header-cell>
-        <mat-cell *matCellDef="let beer"> {{beer.abv}} </mat-cell>
-    </ng-container>
+  <!-- ABV Column -->
+  <ng-container matColumnDef="abv">
+    <mat-header-cell *matHeaderCellDef> ABV </mat-header-cell>
+    <mat-cell *matCellDef="let beer"> {{beer.abv}} </mat-cell>
+  </ng-container>
 
-    <mat-header-row *matHeaderRowDef="['name', 'style', 'abv']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['name', 'style', 'abv']"></mat-row>
+  <!-- Review Column -->
+  <ng-container matColumnDef="review">
+    <mat-header-cell *matHeaderCellDef> Review </mat-header-cell>
+    <mat-cell *matCellDef="let beer">
+      <button (click)="addReview(beer.name)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Review</button>
+      <br>
+      <textarea [(ngModel)]="beer.comment" placeholder="Enter your comment" class="mt-2"></textarea>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="['name', 'style', 'abv', 'review']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['name', 'style', 'abv', 'review']"></mat-row>
+  
 </mat-table>

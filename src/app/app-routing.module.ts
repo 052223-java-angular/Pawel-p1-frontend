@@ -10,6 +10,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { BeerpageComponent } from './pages/beerpage/beerpage.component';
 import { BeerSearchComponent } from './pages/search/search.component';
 import { UserBeerlistComponent } from './pages/userbeerlist/userbeerlist.component';
+import { AddBeerReviewComponent } from './pages/addbeerreview/addbeerreview.component';
 
 
 
@@ -23,7 +24,7 @@ const routes: Routes = [
   {path: 'profile/:username', component: ProfileComponent},
   {path: 'beers', component: BeerlistComponent},
   {path: 'user-beers/:username', component: UserBeerlistComponent},
-
+  {path: 'add-review', component: AddBeerReviewComponent},
   // Wildcard route for a 404 page-should be last
   {path: 'search', component: BeerSearchComponent},
   {path: '**', component: NotFoundComponent}];

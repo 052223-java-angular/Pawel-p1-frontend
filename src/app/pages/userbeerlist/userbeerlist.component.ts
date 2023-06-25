@@ -1,4 +1,3 @@
-// UserBeerlistComponent
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Beer } from 'src/app/models/beer';
@@ -27,5 +26,19 @@ export class UserBeerlistComponent implements OnInit {
 
   getBeers(): void {
     this.beerService.getUserBeers(this.username).subscribe(beers => this.beers = beers);
+  }
+
+  addReview(beername: string): void {
+    const rating = window.prompt('Enter the rating: ');
+    const comment = window.prompt('Enter your comment: ');
+    if (rating && comment) {
+      this.beerService.addReview(this.username, beername, rating, comment)
+        .subscribe((response: any) => {
+          console.log(response);
+          // Optionally, refresh the beers list or do something else
+        }, (error: any) => {
+          console.error(error);
+        });
+    }
   }
 }
