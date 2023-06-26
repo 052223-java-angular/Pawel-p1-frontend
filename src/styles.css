@@ -16,4 +16,8 @@
     
     @apply: left-10;
 }
+.my-custom-button {
+    @apply bg-yellow-500 !important;
+  }
+  
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';

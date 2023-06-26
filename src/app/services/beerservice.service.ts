@@ -4,12 +4,13 @@ import { Observable } from 'rxjs';
 import { Beer } from '../models/beer';
 import { Review } from '../models/review';
 import { ReviewDTO } from '../models/reviewDTO';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BeerService {
-  private BASE_URL = 'http://localhost:8081/beerme/api/auth';
+  private BASE_URL = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) {}
 
@@ -22,7 +23,7 @@ export class BeerService {
   }
 
   getUserBeers(username: string): Observable<Beer[]> {
-    return this.http.get<Beer[]>(`${this.BASE_URL}/user/${username}/beers`);
+    return this.http.get<Beer[]>(`${this.BASE_URL}/user/${username}beers`);
   }
 
   addReview(username: string, beername: string, rating: string, comment: string): Observable<any> {

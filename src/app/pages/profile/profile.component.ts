@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from 'src/app/models/user';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -16,18 +17,16 @@ export class ProfileComponent implements OnInit {
   profileForm!: FormGroup;
   editMode = false;
 
+  private BASE_URL = environment.apiBaseUrl;
+
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient, private authService : AuthServiceService) { }
 
   ngOnInit(): void {
     this.username = this.authService.getUsernameFromLocalStorage();
-    //const usernameFromRoute = this.route.snapshot.paramMap.get('username');
     if(this.username) {
-      //this.username = usernameFromRoute;
-      // fetch user profile from the backend
-      this.http.get<User>(`http://localhost:8081/beerme/api/auth/profile/${this.username}`).subscribe(user => {
+      this.http.get<User>(`${this.BASE_URL}/profile/${this.username}`).subscribe(user => {
         this.userProfile = user;
         console.log(this.userProfile);
-        //initialize the form with the user's current profile information
         this.profileForm = this.fb.group({
           prp: [this.userProfile.prp],
           bio: [this.userProfile.bio],
@@ -38,23 +37,19 @@ export class ProfileComponent implements OnInit {
       });
     }
   }
+  
   toggleEditMode(): void {
     this.editMode = !this.editMode;
   }
+
   onSubmit(): void {
-    //access form values using this.profileForm.value
     const updatedProfile = this.profileForm.value;
-  
-    //call update API endpoint
-    this.http.put(`http://localhost:8081/beerme/api/auth/profile/${this.username}/update`, updatedProfile).subscribe(response => {
-      
+    this.http.put(`${this.BASE_URL}/profile/${this.username}/update`, updatedProfile).subscribe(response => {
       console.log(response);
-      // Update only the 'prp' and 'bio' properties of the userProfile with new data
       this.userProfile.prp = updatedProfile.prp;
       this.userProfile.bio = updatedProfile.bio;
-      this.toggleEditMode(); // switch to display mode
+      this.toggleEditMode();
     }, error => {
-      
       console.error(error);
     });
   }

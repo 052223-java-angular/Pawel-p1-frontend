@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewserviceService {
-  private  BASE_URL = 'http://localhost:8081/beerme/api/auth';
+  private  BASE_URL = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +18,7 @@ export class ReviewserviceService {
       rating : rating,
       comment: comment,
     }
-    return this.http.post('http://localhost:8081/beerme/api/auth/review', body);  
+    return this.http.post(`${this.BASE_URL}/review`, body);  
   }
   
 

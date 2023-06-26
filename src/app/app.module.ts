@@ -32,7 +32,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor.service';
 import { UserBeerlistComponent } from './pages/userbeerlist/userbeerlist.component';
 import { AddBeerReviewComponent } from './pages/addbeerreview/addbeerreview.component';
-
+import { FavoriteComponent } from './pages/favorite/favorite.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { AddBeerReviewComponent } from './pages/addbeerreview/addbeerreview.comp
     BeerSearchComponent,
     UserBeerlistComponent,
     AddBeerReviewComponent,
+    FavoriteComponent,
     
   ],
   imports: [
@@ -63,6 +65,7 @@ import { AddBeerReviewComponent } from './pages/addbeerreview/addbeerreview.comp
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
+    MatSnackBarModule,
     MatIconModule,
     MatListModule,
     CommonModule,

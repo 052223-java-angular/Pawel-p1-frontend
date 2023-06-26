@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Add Favorite for User: {{username}}</h1>
+    <form (ngSubmit)="addFavorite()" class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Username:</mat-label>
+        <input matInput [(ngModel)]="username" name="username" required readonly>
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Beer Name:</mat-label>
+        <input matInput [(ngModel)]="beername" name="beername" required>
+      </mat-form-field>
+  
+      <button mat-raised-button color="my-custom-button" type="submit">Add to Favorites</button>
+    </form>
+</div>
