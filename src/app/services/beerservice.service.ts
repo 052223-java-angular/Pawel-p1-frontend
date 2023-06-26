@@ -23,7 +23,7 @@ export class BeerService {
   }
 
   getUserBeers(username: string): Observable<Beer[]> {
-    return this.http.get<Beer[]>(`${this.BASE_URL}/user/${username}beers`);
+    return this.http.get<Beer[]>(`${this.BASE_URL}/user/${username}/beers`);
   }
 
   addReview(username: string, beername: string, rating: string, comment: string): Observable<any> {

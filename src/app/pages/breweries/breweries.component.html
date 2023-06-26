@@ -1,0 +1,38 @@
+<div *ngIf="breweries.length">
+    <h2>Breweries</h2>
+    <table mat-table [dataSource]="breweries" class="mat-elevation-z8">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let brewery"> {{brewery.name}} </td>
+      </ng-container>
+  
+      <!-- Street Column -->
+      <ng-container matColumnDef="street">
+        <th mat-header-cell *matHeaderCellDef> Street </th>
+        <td mat-cell *matCellDef="let brewery"> {{brewery.street}} </td>
+      </ng-container>
+  
+      <!-- City Column -->
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef> City </th>
+        <td mat-cell *matCellDef="let brewery"> {{brewery.city}} </td>
+      </ng-container>
+  
+      <!-- State Column -->
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> State </th>
+        <td mat-cell *matCellDef="let brewery"> {{brewery.state}} </td>
+      </ng-container>
+  
+      <!-- Website Column -->
+      <ng-container matColumnDef="website_url">
+        <th mat-header-cell *matHeaderCellDef> Website </th>
+        <td mat-cell *matCellDef="let brewery"> <a href="{{brewery.website_url}}">{{brewery.website_url}}</a> </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  

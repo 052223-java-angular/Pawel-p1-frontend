@@ -12,7 +12,7 @@ import { BeerSearchComponent } from './pages/search/search.component';
 import { UserBeerlistComponent } from './pages/userbeerlist/userbeerlist.component';
 import { AddBeerReviewComponent } from './pages/addbeerreview/addbeerreview.component';
 import { FavoriteComponent } from './pages/favorite/favorite.component';
-
+import { BreweriesComponent } from './pages/breweries/breweries.component';
 
 
 const routes: Routes = [
@@ -29,7 +29,9 @@ const routes: Routes = [
   // Wildcard route for a 404 page-should be last
   {path: 'search', component: BeerSearchComponent},
   {path: 'favorites', component: FavoriteComponent},
+  {path: 'breweries', component: BreweriesComponent},
   {path: '**', component: NotFoundComponent}];
+
   
 
 @NgModule({

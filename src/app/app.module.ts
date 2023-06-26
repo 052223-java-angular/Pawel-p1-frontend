@@ -34,6 +34,7 @@ import { UserBeerlistComponent } from './pages/userbeerlist/userbeerlist.compone
 import { AddBeerReviewComponent } from './pages/addbeerreview/addbeerreview.component';
 import { FavoriteComponent } from './pages/favorite/favorite.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BreweriesComponent } from './pages/breweries/breweries.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     UserBeerlistComponent,
     AddBeerReviewComponent,
     FavoriteComponent,
+    BreweriesComponent,
     
   ],
   imports: [

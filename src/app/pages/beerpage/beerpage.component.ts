@@ -10,6 +10,8 @@ import { Beer } from 'src/app/models/beer';
 })
 export class BeerpageComponent implements OnInit {
   beer: Beer | undefined;
+  displayedColumns: string[] = ['name', 'style', 'abv', 'review'];
+  dataSource: Beer[] = [];
 
   constructor(private route: ActivatedRoute, private beerService: BeerService) {}
 
@@ -17,6 +19,7 @@ export class BeerpageComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.getBeer(id);
+      
     }
   }
 

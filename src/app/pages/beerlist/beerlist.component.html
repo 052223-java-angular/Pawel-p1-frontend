@@ -12,15 +12,19 @@
     <!-- Style Column -->
     <ng-container matColumnDef="style">
       <mat-header-cell *matHeaderCellDef> Style </mat-header-cell>
-      <mat-cell *matCellDef="let beer"> {{beer.style}} </mat-cell>
+      <mat-cell *matCellDef="let beer"> {{beer.style }} </mat-cell>
     </ng-container>
   
     <!-- ABV Column -->
     <ng-container matColumnDef="abv">
       <mat-header-cell *matHeaderCellDef> ABV </mat-header-cell>
-      <mat-cell *matCellDef="let beer"> {{beer.abv}} </mat-cell>
+      <mat-cell *matCellDef="let beer"> {{beer.abv }} </mat-cell>
     </ng-container>
   
     <mat-header-row *matHeaderRowDef="['name', 'style', 'abv']"></mat-header-row>
     <mat-row *matRowDef="let row; columns: ['name', 'style', 'abv']"></mat-row>
-</mat-table>
+
+    
+
+
+  </mat-table>
