@@ -7,7 +7,7 @@ import { Breweries } from '../models/breweries';
   providedIn: 'root'
 })
 export class BreweryService {
-  private apiUrl = 'https://api.openbrewerydb.org/v1/breweries?per_page=125';
+  private apiUrl = 'https://api.openbrewerydb.org/v1/breweries?per_page=325';
 
   constructor(private http: HttpClient) { }
 
